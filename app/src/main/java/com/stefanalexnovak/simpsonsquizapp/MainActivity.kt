@@ -2,8 +2,11 @@ package com.stefanalexnovak.simpsonsquizapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var score: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +24,18 @@ class MainActivity : AppCompatActivity() {
         questionList.add(question9)
         questionList.add(question10)
         questionList.add(question11)
+
+//        var startScore = 0
+//        var startQuestionCounter = 0
+//        QuestionCounterText.text = getString(R.string.QuestionCounterText, startQuestionCounter)
+//        ScoreCounterText.text = getString(R.string.ScoreCounterText, startScore)
+    }
+
+    private fun incrementScore() {
+
+        score += 1
+//        val newScore = getString(R.string.ScoreCounterText, score)
+//        ScoreCounterText.text = newScore
     }
 
     var questionList = mutableListOf<Questions>()

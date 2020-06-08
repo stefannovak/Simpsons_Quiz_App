@@ -7,5 +7,4 @@ public class Questions(questionId: Int,
                        optionalAnswerC: String,
                        questionAnswer: String) {
 
-
 }

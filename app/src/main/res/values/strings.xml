@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Simpsons Quiz App</string>
+    <string name="QuestionCounterText">Question %1$d</string>
+    <string name="ScoreCounterText">Score: %0$d</string>
 </resources>
