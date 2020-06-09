@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private var score: Int = 0
+    private var questionScore: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,17 +26,38 @@ class MainActivity : AppCompatActivity() {
         questionList.add(question10)
         questionList.add(question11)
 
-//        var startScore = 0
-//        var startQuestionCounter = 0
-//        QuestionCounterText.text = getString(R.string.QuestionCounterText, startQuestionCounter)
-//        ScoreCounterText.text = getString(R.string.ScoreCounterText, startScore)
+        //Testing populating the questions and answers.
+        QuestionText.text = question1.question
+        AnswerButtonA.text = question1.optionalAnswerA
+        AnswerButtonB.text = question1.optionalAnswerB
+        AnswerButtonC.text = question1.optionalAnswerC
+        AnswerButtonD.text = question1.questionAnswer
+
+        AnswerButtonD.setOnClickListener{view ->
+            incrementScore()
+        }
+
+
+        //Score and Question Counter stuff
+        ScoreCounterText.text = getString(R.string.ScoreCounterText, score.toString())
+        QuestionCounterText.text = getString(R.string.QuestionCounterText, questionScore.toString())
+
     }
 
-    private fun incrementScore() {
+    private fun populateData() {
 
+    }
+
+    /**
+     * Adds 1 to both question and score counters. Used in the correct answer button onclicklistener
+     */
+    private fun incrementScore() {
         score += 1
-//        val newScore = getString(R.string.ScoreCounterText, score)
-//        ScoreCounterText.text = newScore
+        questionScore += 1
+        val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
+        val newQuestionScore = getString(R.string.QuestionCounterText, questionScore.toString())
+        ScoreCounterText.text = newScoreScore
+        QuestionCounterText.text = newQuestionScore
     }
 
     var questionList = mutableListOf<Questions>()
@@ -62,5 +84,6 @@ class MainActivity : AppCompatActivity() {
         "Handsome Pete", "Krumpet the Klown", "Gabbo", "Krusty the Clown")
     val question11 = Questions(11, "Which crank call of Bart's actually answers the phone?",
         "Amada Huggenkiss", "B.O Problem", "I.P Freely", "Hugh Jazz")
+
 
 }
