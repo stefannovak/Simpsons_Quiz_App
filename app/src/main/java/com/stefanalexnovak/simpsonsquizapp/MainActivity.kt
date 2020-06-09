@@ -8,6 +8,12 @@ class MainActivity : AppCompatActivity() {
 
     private var score: Int = 0
     private var questionScore: Int = 1
+    private val correctAnswer: Boolean = false
+    private var questionList = mutableListOf<Questions>()
+    private val questionListSize = questionList.size
+    private var questionCounter = 0
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +33,46 @@ class MainActivity : AppCompatActivity() {
         questionList.add(question11)
 
         //Testing populating the questions and answers.
-        QuestionText.text = question1.question
-        AnswerButtonA.text = question1.optionalAnswerA
-        AnswerButtonB.text = question1.optionalAnswerB
-        AnswerButtonC.text = question1.optionalAnswerC
-        AnswerButtonD.text = question1.questionAnswer
+        QuestionText.text = questionList[questionCounter].question
+        AnswerButtonA.text = questionList[questionCounter].optionalAnswerA
+        AnswerButtonB.text = questionList[questionCounter].optionalAnswerB
+        AnswerButtonC.text = questionList[questionCounter].optionalAnswerC
+        AnswerButtonD.text = questionList[questionCounter].questionAnswer
+
+        AnswerButtonA.setOnClickListener{view ->
+            if (AnswerButtonA.text == questionList[questionCounter].questionAnswer) {
+                incrementScore()
+                nextQuestion()
+            } else {
+                decrementScore()
+            }
+        }
+
+        AnswerButtonB.setOnClickListener{view ->
+            if (AnswerButtonB.text == questionList[questionCounter].questionAnswer) {
+                incrementScore()
+                nextQuestion()
+            } else {
+                decrementScore()
+            }
+        }
+
+        AnswerButtonC.setOnClickListener{view ->
+            if (AnswerButtonC.text == questionList[questionCounter].questionAnswer) {
+                incrementScore()
+                nextQuestion()
+            } else {
+                decrementScore()
+            }
+        }
 
         AnswerButtonD.setOnClickListener{view ->
-            incrementScore()
+            if (AnswerButtonD.text == questionList[questionCounter].questionAnswer) {
+                incrementScore()
+                nextQuestion()
+            } else {
+                decrementScore()
+            }
         }
 
 
@@ -49,6 +87,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * First checks if the questions have reached the end, which will return the end game screen.
+     * then increments the question counter and shows the next question and answer.
+     */
+    private fun nextQuestion() {
+        if(questionCounter == questionList.size -1) {
+            //This needs to end the quiz
+            //Possibly show a new screen, display score, ask to try again
+            println("Quiz over")
+            questionCounter = 0
+        } else {
+            questionCounter += 1
+
+            QuestionText.text = questionList[questionCounter].question
+            AnswerButtonA.text = questionList[questionCounter].optionalAnswerA
+            AnswerButtonB.text = questionList[questionCounter].optionalAnswerB
+            AnswerButtonC.text = questionList[questionCounter].optionalAnswerC
+            AnswerButtonD.text = questionList[questionCounter].questionAnswer
+        }
+    }
+
+    /**
      * Adds 1 to both question and score counters. Used in the correct answer button onclicklistener
      */
     private fun incrementScore() {
@@ -60,29 +119,38 @@ class MainActivity : AppCompatActivity() {
         QuestionCounterText.text = newQuestionScore
     }
 
-    var questionList = mutableListOf<Questions>()
+    /**
+     * subtracts a point from the score, but keeps it at 0 if it's already 0
+     */
+    private fun decrementScore() {
+        if(score != 0) {
+            score -= 1
+            val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
+            ScoreCounterText.text = newScoreScore
+        }
+    }
 
-    val question1 = Questions(1, "What colour was Chief Wiggum's hair originally?",
+    private val question1 = Questions(1, "What colour was Chief Wiggum's hair originally?",
         "Blue", "Grey", "Green", "Black")
-    val question2 = Questions(2, "How many members are in the main Simpsons family?",
+    private val question2 = Questions(2, "How many members are in the main Simpsons family?",
         "6","4", "3","5")
-    val question3 = Questions(3, "Marge's sisters are Patty and ?",
+    private val question3 = Questions(3, "Marge's sisters are Patty and ?",
         "Edna", "Maggie", "Margeret", "Selma")
-    val question4 = Questions(4, "In what year did the Simpsons first season premiere?",
+    private val question4 = Questions(4, "In what year did the Simpsons first season premiere?",
         "1990","1991","1992","1989")
-    val question5 = Questions(5, "Which was the first Sideshow Bob centered episode?",
+    private val question5 = Questions(5, "Which was the first Sideshow Bob centered episode?",
         "The Telltale Head", "Cape Feare", "Sideshow Bob's Last Gleaming", "Krusty Gets Busted")
-    val question6 = Questions(6, "What football team is gifted to Homer by Hank Scorpio?",
+    private val question6 = Questions(6, "What football team is gifted to Homer by Hank Scorpio?",
         "Dallas Cowboys", "Green Bay Packers", "New England Patriots", "Denver Broncos")
-    val question7 = Questions(7, "The towns baseball team are called the Springfield ?",
+    private val question7 = Questions(7, "The towns baseball team are called the Springfield ?",
         "Dodgers", "Nucleus","Jets", "Isotopes")
-    val question8 = Questions(8, "Who founded the town of Springfield?",
+    private val question8 = Questions(8, "Who founded the town of Springfield?",
         "Abraham Simpson", "Springfield Manhatten", "Cornelius Quimby", "Jebadiah Springfield")
-    val question9 = Questions(9, "How old are Bart and Lisa?",
+    private val question9 = Questions(9, "How old are Bart and Lisa?",
         "9 and 10", "10 and 12", "7 and 9", "10 and 8")
-    val question10 = Questions(10, "What is the name of the clown on Channel 6?",
+    private val question10 = Questions(10, "What is the name of the clown on Channel 6?",
         "Handsome Pete", "Krumpet the Klown", "Gabbo", "Krusty the Clown")
-    val question11 = Questions(11, "Which crank call of Bart's actually answers the phone?",
+    private val question11 = Questions(11, "Which crank call of Bart's actually answers the phone?",
         "Amada Huggenkiss", "B.O Problem", "I.P Freely", "Hugh Jazz")
 
 
