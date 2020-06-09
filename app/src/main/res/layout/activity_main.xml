@@ -8,39 +8,44 @@
 
     <Button
         android:id="@+id/AnswerButtonA"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:text="Button"
+        android:text="@string/Button"
+        android:textIsSelectable="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/AnswerButtonB"
+        app:layout_constraintEnd_toStartOf="@+id/AnswerButtonB"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/AnswerButtonB"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="64dp"
-        android:text="Button"
+        android:text="@string/Button"
         app:layout_constraintBottom_toTopOf="@+id/AnswerButtonD"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/AnswerButtonC"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:text="Button"
+        android:text="@string/Button"
         app:layout_constraintBaseline_toBaselineOf="@+id/AnswerButtonD"
+        app:layout_constraintEnd_toStartOf="@+id/AnswerButtonD"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/AnswerButtonD"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="64dp"
-        android:text="Button"
+        android:text="@string/Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

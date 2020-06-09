@@ -2,4 +2,5 @@
     <string name="app_name">Simpsons Quiz App</string>
     <string name="QuestionCounterText">Question %s</string>
     <string name="ScoreCounterText">Score: %s</string>
+    <string name="Button">Empty</string>
 </resources>

@@ -10,7 +10,6 @@ class MainActivity : AppCompatActivity() {
     private var questionScore: Int = 1
     private val correctAnswer: Boolean = false
     private var questionList = mutableListOf<Questions>()
-    private val questionListSize = questionList.size
     private var questionCounter = 0
 
 
@@ -19,18 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Add questions to the question list
-        questionList.add(question1)
-        questionList.add(question2)
-        questionList.add(question3)
-        questionList.add(question4)
-        questionList.add(question5)
-        questionList.add(question6)
-        questionList.add(question7)
-        questionList.add(question8)
-        questionList.add(question9)
-        questionList.add(question10)
-        questionList.add(question11)
+        populateData()
 
         //Testing populating the questions and answers.
         QuestionText.text = questionList[questionCounter].question
@@ -82,8 +70,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Add questions to the question list
     private fun populateData() {
-
+        questionList.add(question1)
+        questionList.add(question2)
+        questionList.add(question3)
+        questionList.add(question4)
+        questionList.add(question5)
+        questionList.add(question6)
+        questionList.add(question7)
+        questionList.add(question8)
+        questionList.add(question9)
+        questionList.add(question10)
+        questionList.add(question11)
     }
 
     /**
