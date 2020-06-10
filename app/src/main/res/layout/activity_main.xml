@@ -81,4 +81,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/TimerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timerText"
+        app:layout_constraintBottom_toTopOf="@+id/QuestionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ScoreCounterText"
+        app:layout_constraintVertical_bias="0.067" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

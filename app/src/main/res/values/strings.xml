@@ -3,4 +3,5 @@
     <string name="QuestionCounterText">Question %s</string>
     <string name="ScoreCounterText">Score: %s</string>
     <string name="Button">Empty</string>
+    <string name="timerText">Time left: %d</string>
 </resources>

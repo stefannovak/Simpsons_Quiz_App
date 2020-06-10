@@ -2,6 +2,7 @@ package com.stefanalexnovak.simpsonsquizapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private val correctAnswer: Boolean = false
     private var questionList = mutableListOf<Questions>()
     private var questionCounter = 0
+    private lateinit var countDownTimer: CountDownTimer
 
 
 
@@ -68,6 +70,23 @@ class MainActivity : AppCompatActivity() {
         ScoreCounterText.text = getString(R.string.ScoreCounterText, score.toString())
         QuestionCounterText.text = getString(R.string.QuestionCounterText, questionScore.toString())
 
+        //timer stuff
+        TimerText.text = getString(R.string.timerText, 20)
+        timer()
+
+    }
+
+    private fun timer() {
+        countDownTimer = object : CountDownTimer(20000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                var timeLeftInSec = millisUntilFinished / 1000
+                TimerText.text = getString(R.string.timerText, timeLeftInSec)
+            }
+
+            override fun onFinish() {
+                decrementScore()
+            }
+        }.start()
     }
 
     //Add questions to the question list
@@ -95,6 +114,7 @@ class MainActivity : AppCompatActivity() {
             //Possibly show a new screen, display score, ask to try again
             println("Quiz over")
             questionCounter = 0
+            countDownTimer.cancel()
         } else {
             questionCounter += 1
 
@@ -103,6 +123,9 @@ class MainActivity : AppCompatActivity() {
             AnswerButtonB.text = questionList[questionCounter].optionalAnswerB
             AnswerButtonC.text = questionList[questionCounter].optionalAnswerC
             AnswerButtonD.text = questionList[questionCounter].questionAnswer
+
+            countDownTimer.cancel()
+            timer()
         }
     }
 
