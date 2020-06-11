@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
 
     private var score: Int = 0
     private var questionScore: Int = 1
-    private val correctAnswer: Boolean = false
     private var questionList = mutableListOf<Questions>()
     private var questionCounter = 0
     private lateinit var countDownTimer: CountDownTimer
@@ -23,13 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         populateData()
-
-        //Testing populating the questions and answers.
-        QuestionText.text = questionList[questionCounter].question
-        AnswerButtonA.text = questionList[questionCounter].optionalAnswerA
-        AnswerButtonB.text = questionList[questionCounter].optionalAnswerB
-        AnswerButtonC.text = questionList[questionCounter].optionalAnswerC
-        AnswerButtonD.text = questionList[questionCounter].questionAnswer
+        initialQuestion()
 
         AnswerButtonA.setOnClickListener{view ->
             if (AnswerButtonA.text == questionList[questionCounter].questionAnswer) {
@@ -76,6 +69,25 @@ class MainActivity : AppCompatActivity() {
         TimerText.text = getString(R.string.timerText, 20)
         timer()
 
+    }
+
+    private fun initialQuestion() {
+        QuestionText.text = questionList[questionCounter].question
+
+        val firstFourAnswers = listOf(
+            questionList[questionCounter].optionalAnswerA,
+            questionList[questionCounter].optionalAnswerB,
+            questionList[questionCounter].optionalAnswerC,
+            questionList[questionCounter].questionAnswer
+        )
+
+        val firstNewList = firstFourAnswers.shuffled()
+
+        QuestionText.text = questionList[questionCounter].question
+        AnswerButtonA.text = firstNewList.component1()
+        AnswerButtonB.text = firstNewList.component2()
+        AnswerButtonC.text = firstNewList.component3()
+        AnswerButtonD.text = firstNewList.component4()
     }
 
     private fun timer() {
@@ -164,6 +176,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Questions
     private val question1 = Questions(1, "What colour was Chief Wiggum's hair originally?",
         "Blue", "Grey", "Green", "Black")
     private val question2 = Questions(2, "How many members are in the main Simpsons family?",
