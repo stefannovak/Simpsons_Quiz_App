@@ -1,11 +1,13 @@
 package com.stefanalexnovak.simpsonsquizapp
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Dialog
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.Window
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.log
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,16 +16,41 @@ class MainActivity : AppCompatActivity() {
     private var questionList = mutableListOf<Questions>()
     private var questionCounter = 0
     private lateinit var countDownTimer: CountDownTimer
-
-
+    private var errorCount = 0
+    private var gameStarted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        populateData()
-        initialQuestion()
+        resetGame()
 
+    }
+
+    private fun lostDialog() {
+        val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setMessage("D'oh! \n\n" +
+                "Your score was ${score}\n\n" +
+                "Would you like to try again?")
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Try Again") {
+                dialog, _ -> resetGame()
+        }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") {
+                dialog, _ -> dialog.dismiss()
+        }
+        alertDialog.show()
+
+    }
+
+    private fun resetGame() {
+        gameStarted = true
+        score = 0
+        questionScore = 1
+        errorCount = 0
+        questionCounter = 0
+        populateData()
+        questionList.shuffle()
+        initialQuestion()
         AnswerButtonA.setOnClickListener{view ->
             if (AnswerButtonA.text == questionList[questionCounter].questionAnswer) {
                 incrementScore()
@@ -60,16 +87,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-        //Score and Question Counter stuff
         ScoreCounterText.text = getString(R.string.ScoreCounterText, score.toString())
         QuestionCounterText.text = getString(R.string.QuestionCounterText, questionScore.toString())
 
-        //timer stuff
         TimerText.text = getString(R.string.timerText, 20)
         timer()
-
     }
+
+    private fun endGame() {}
 
     private fun initialQuestion() {
         QuestionText.text = questionList[questionCounter].question
@@ -95,6 +120,9 @@ class MainActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 var timeLeftInSec = millisUntilFinished / 1000
                 TimerText.text = getString(R.string.timerText, timeLeftInSec)
+                if (timeLeftInSec == 0.toLong()) {
+                    lostDialog()
+                }
             }
 
             override fun onFinish() {
@@ -130,6 +158,7 @@ class MainActivity : AppCompatActivity() {
             //This needs to end the quiz
             //Possibly show a new screen, display score, ask to try again
             println("Quiz over")
+
             questionCounter = 0
             countDownTimer.cancel()
         } else {
@@ -171,8 +200,19 @@ class MainActivity : AppCompatActivity() {
     private fun decrementScore() {
         if(score != 0) {
             score -= 1
+            errorCount += 1
             val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
             ScoreCounterText.text = newScoreScore
+        } else if (score == 0) {
+            errorCount += 1
+        }
+
+        if (errorCount == 3) {
+            score += 1
+            val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
+            ScoreCounterText.text = newScoreScore
+            lostDialog()
+            countDownTimer.cancel()
         }
     }
 
