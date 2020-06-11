@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 dialog, _ -> resetGame()
         }
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") {
-                dialog, _ -> dialog.dismiss()
+                dialog, _ -> endGame()
         }
         alertDialog.show()
 
@@ -94,7 +94,11 @@ class MainActivity : AppCompatActivity() {
         timer()
     }
 
-    private fun endGame() {}
+    private fun endGame() {
+        //I want this to go to a main menu view
+        //but for now just do a toast
+        Toast.makeText(this, "Heading to main menu", Toast.LENGTH_LONG).show()
+    }
 
     private fun initialQuestion() {
         QuestionText.text = questionList[questionCounter].question
