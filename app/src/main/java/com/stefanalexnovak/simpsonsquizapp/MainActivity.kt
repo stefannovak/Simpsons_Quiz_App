@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.log
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -106,7 +108,10 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * First checks if the questions have reached the end, which will return the end game screen.
-     * then increments the question counter and shows the next question and answer.
+     * then increments the question counter
+     * A list of answers for the corresponding question is created, and then randomly shuffed.
+     * The button texts take values for the newList.
+     * The countdown from the previous question is stopped, and a new one is started.
      */
     private fun nextQuestion() {
         if(questionCounter == questionList.size -1) {
@@ -118,11 +123,18 @@ class MainActivity : AppCompatActivity() {
         } else {
             questionCounter += 1
 
+            val fourAnswers = listOf(questionList[questionCounter].optionalAnswerA,
+                questionList[questionCounter].optionalAnswerB,
+                questionList[questionCounter].optionalAnswerC,
+                questionList[questionCounter].questionAnswer)
+
+            val newList = fourAnswers.shuffled()
+
             QuestionText.text = questionList[questionCounter].question
-            AnswerButtonA.text = questionList[questionCounter].optionalAnswerA
-            AnswerButtonB.text = questionList[questionCounter].optionalAnswerB
-            AnswerButtonC.text = questionList[questionCounter].optionalAnswerC
-            AnswerButtonD.text = questionList[questionCounter].questionAnswer
+            AnswerButtonA.text = newList.component1()
+            AnswerButtonB.text = newList.component2()
+            AnswerButtonC.text = newList.component3()
+            AnswerButtonD.text = newList.component4()
 
             countDownTimer.cancel()
             timer()
