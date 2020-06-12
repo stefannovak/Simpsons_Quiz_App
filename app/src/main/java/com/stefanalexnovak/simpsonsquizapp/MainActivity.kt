@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         populateData()
         questionList.shuffle()
         initialQuestion()
+        ErrorCounterText.text = ""
         AnswerButtonA.setOnClickListener{view ->
             if (AnswerButtonA.text == questionList[questionCounter].questionAnswer) {
                 incrementScore()
@@ -207,8 +208,10 @@ class MainActivity : AppCompatActivity() {
             errorCount += 1
             val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
             ScoreCounterText.text = newScoreScore
+            ErrorCounterText.text = ErrorCounterText.text.toString() + "x"
         } else if (score == 0) {
             errorCount += 1
+            ErrorCounterText.text = ErrorCounterText.text.toString() + "x"
         }
 
         if (errorCount == 3) {

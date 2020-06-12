@@ -53,12 +53,14 @@
         android:id="@+id/QuestionText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/AnswerButtonB"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/ErrorCounterText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ScoreCounterText"
-        app:layout_constraintVertical_bias="0.567" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/QuestionCounterText"
@@ -92,5 +94,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ScoreCounterText"
         app:layout_constraintVertical_bias="0.067" />
+
+    <TextView
+        android:id="@+id/ErrorCounterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0303"
+        app:layout_constraintBottom_toTopOf="@+id/AnswerButtonB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.602" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

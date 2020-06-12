@@ -4,4 +4,5 @@
     <string name="ScoreCounterText">Score: %s</string>
     <string name="Button">Empty</string>
     <string name="timerText">Time left: %d</string>
+    <string name="ErrorCount">"Mistakes: %s%s%s"</string>
 </resources>
