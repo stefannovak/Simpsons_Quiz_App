@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun lostDialog() {
         val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setCanceledOnTouchOutside(false)
         alertDialog.setMessage("D'oh! \n\n" +
                 "Your score was ${score}\n\n" +
                 "Would you like to try again?")
