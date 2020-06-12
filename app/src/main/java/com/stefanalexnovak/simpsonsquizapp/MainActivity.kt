@@ -1,9 +1,7 @@
 package com.stefanalexnovak.simpsonsquizapp
 
-import android.app.Dialog
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -33,12 +31,8 @@ class MainActivity : AppCompatActivity() {
         alertDialog.setMessage("D'oh! \n\n" +
                 "Your score was ${score}\n\n" +
                 "Would you like to try again?")
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Try Again") {
-                dialog, _ -> resetGame()
-        }
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") {
-                dialog, _ -> endGame()
-        }
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Try Again") { _, _ -> resetGame() }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> endGame() }
         alertDialog.show()
 
     }
@@ -53,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         questionList.shuffle()
         initialQuestion()
         ErrorCounterText.text = ""
-        AnswerButtonA.setOnClickListener{view ->
+        AnswerButtonA.setOnClickListener{
             if (AnswerButtonA.text == questionList[questionCounter].questionAnswer) {
                 incrementScore()
                 nextQuestion()
@@ -62,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        AnswerButtonB.setOnClickListener{view ->
+        AnswerButtonB.setOnClickListener{
             if (AnswerButtonB.text == questionList[questionCounter].questionAnswer) {
                 incrementScore()
                 nextQuestion()
@@ -71,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        AnswerButtonC.setOnClickListener{view ->
+        AnswerButtonC.setOnClickListener{
             if (AnswerButtonC.text == questionList[questionCounter].questionAnswer) {
                 incrementScore()
                 nextQuestion()
@@ -80,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        AnswerButtonD.setOnClickListener{view ->
+        AnswerButtonD.setOnClickListener{
             if (AnswerButtonD.text == questionList[questionCounter].questionAnswer) {
                 incrementScore()
                 nextQuestion()
@@ -124,7 +118,7 @@ class MainActivity : AppCompatActivity() {
     private fun timer() {
         countDownTimer = object : CountDownTimer(20000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                var timeLeftInSec = millisUntilFinished / 1000
+                val timeLeftInSec = millisUntilFinished / 1000
                 TimerText.text = getString(R.string.timerText, timeLeftInSec)
                 if (timeLeftInSec == 0.toLong()) {
                     lostDialog()
