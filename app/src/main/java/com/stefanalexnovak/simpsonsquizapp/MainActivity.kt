@@ -25,6 +25,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun winDialog() {
+        val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setCanceledOnTouchOutside(false)
+        alertDialog.setMessage("Congratulations!\n\n" +
+                "Your score was ${score}\n\n" +
+                "Would you like to try again? Or perhaps try a harder difficulty?")
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Play Again") { _, _ -> resetGame() }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> endGame() }
+        alertDialog.show()
+    }
+
     private fun lostDialog() {
         val alertDialog = AlertDialog.Builder(this).create()
         alertDialog.setCanceledOnTouchOutside(false)
@@ -158,9 +169,9 @@ class MainActivity : AppCompatActivity() {
             //This needs to end the quiz
             //Possibly show a new screen, display score, ask to try again
             println("Quiz over")
-
             questionCounter = 0
             countDownTimer.cancel()
+            winDialog()
         } else {
             questionCounter += 1
 
