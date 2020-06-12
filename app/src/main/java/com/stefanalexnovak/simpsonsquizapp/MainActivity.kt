@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        populateData()
+
         resetGame()
 
     }
@@ -49,12 +51,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetGame() {
-        gameStarted = true
+//        gameStarted = true
         score = 0
         questionScore = 1
         errorCount = 0
         questionCounter = 0
-        populateData()
         questionList.shuffle()
         initialQuestion()
         ErrorCounterText.text = ""
@@ -146,15 +147,15 @@ class MainActivity : AppCompatActivity() {
     private fun populateData() {
         questionList.add(question1)
         questionList.add(question2)
-        questionList.add(question3)
-        questionList.add(question4)
-        questionList.add(question5)
-        questionList.add(question6)
-        questionList.add(question7)
-        questionList.add(question8)
-        questionList.add(question9)
-        questionList.add(question10)
-        questionList.add(question11)
+//        questionList.add(question3)
+//        questionList.add(question4)
+//        questionList.add(question5)
+//        questionList.add(question6)
+//        questionList.add(question7)
+//        questionList.add(question8)
+//        questionList.add(question9)
+//        questionList.add(question10)
+//        questionList.add(question11)
     }
 
     /**
@@ -169,7 +170,6 @@ class MainActivity : AppCompatActivity() {
             //This needs to end the quiz
             //Possibly show a new screen, display score, ask to try again
             println("Quiz over")
-            questionCounter = 0
             countDownTimer.cancel()
             winDialog()
         } else {
