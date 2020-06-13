@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Uses a bad alert dialog 
+     */
     private fun winDialog() {
         val alertDialog = AlertDialog.Builder(this).create()
         alertDialog.setCanceledOnTouchOutside(false)
@@ -147,15 +150,15 @@ class MainActivity : AppCompatActivity() {
     private fun populateData() {
         questionList.add(question1)
         questionList.add(question2)
-//        questionList.add(question3)
-//        questionList.add(question4)
-//        questionList.add(question5)
-//        questionList.add(question6)
-//        questionList.add(question7)
-//        questionList.add(question8)
-//        questionList.add(question9)
-//        questionList.add(question10)
-//        questionList.add(question11)
+        questionList.add(question3)
+        questionList.add(question4)
+        questionList.add(question5)
+        questionList.add(question6)
+        questionList.add(question7)
+        questionList.add(question8)
+        questionList.add(question9)
+        questionList.add(question10)
+        questionList.add(question11)
     }
 
     /**

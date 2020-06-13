@@ -5,4 +5,10 @@
     <string name="Button">Empty</string>
     <string name="timerText">Time left: %d</string>
     <string name="ErrorCount">"Mistakes: %s%s%s"</string>
+    <string name="Easy">"Easy"</string>
+    <string name="Medium">"Medium"</string>
+    <string name="Hard">"Hard"</string>
+    <string name="MainMenu">"THE SIMPSONS QUIZ"</string>
+    <string name="Play">"PLAY"</string>
+    <string name="About">"ABOUT"</string>
 </resources>
