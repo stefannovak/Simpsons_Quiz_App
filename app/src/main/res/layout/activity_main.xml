@@ -13,6 +13,7 @@
         android:layout_marginStart="64dp"
         android:text="@string/Button"
         android:textIsSelectable="false"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBaseline_toBaselineOf="@+id/AnswerButtonB"
         app:layout_constraintEnd_toStartOf="@+id/AnswerButtonB"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,6 +26,7 @@
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="64dp"
         android:text="@string/Button"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBottom_toTopOf="@+id/AnswerButtonD"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -34,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:text="@string/Button"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBaseline_toBaselineOf="@+id/AnswerButtonD"
         app:layout_constraintEnd_toStartOf="@+id/AnswerButtonD"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,6 +49,7 @@
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="64dp"
         android:text="@string/Button"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -55,6 +59,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="36sp"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBottom_toTopOf="@+id/ErrorCounterText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/QuestionCounterText"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBaseline_toBaselineOf="@+id/ScoreCounterText"
         app:layout_constraintEnd_toStartOf="@+id/ScoreCounterText"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,6 +86,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/ScoreCounterText"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,6 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/timerText"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBottom_toTopOf="@+id/QuestionText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -100,6 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FF0303"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBottom_toTopOf="@+id/AnswerButtonB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -8,7 +8,7 @@
     <string name="Easy">"Easy"</string>
     <string name="Medium">"Medium"</string>
     <string name="Hard">"Hard"</string>
-    <string name="MainMenu">"THE SIMPSONS QUIZ"</string>
+    <string name="MainMenu">"THE\nSIMPSONS\nQUIZ"</string>
     <string name="Play">"PLAY"</string>
     <string name="About">"ABOUT"</string>
 </resources>

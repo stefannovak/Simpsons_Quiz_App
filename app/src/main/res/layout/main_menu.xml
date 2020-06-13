@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/mainMenuText"
-        android:layout_width="414dp"
-        android:layout_height="277dp"
+        android:layout_width="412dp"
+        android:layout_height="323dp"
+        android:fontFamily="@font/simpsons"
         android:text="@string/MainMenu"
         android:textAlignment="center"
         android:textColor="#E3D347"
-        android:textSize="75sp"
+        android:textSize="70sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -26,6 +27,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="60dp"
         android:text="@string/Play"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +40,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="96dp"
         android:text="@string/About"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -51,6 +54,7 @@
         android:layout_height="94dp"
         android:layout_marginTop="60dp"
         android:background="#B5ABAB"
+        android:fontFamily="@font/simpsons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playButton">
@@ -60,21 +64,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Easy" />
+            android:text="@string/Easy"
+            android:fontFamily="@font/simpsons"/>
 
         <RadioButton
             android:id="@+id/radio_medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Medium" />
+            android:text="@string/Medium"
+            android:fontFamily="@font/simpsons"/>
 
         <RadioButton
             android:id="@+id/radio_hard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Hard" />
+            android:text="@string/Hard"
+            android:fontFamily="@font/simpsons"/>
 
     </RadioGroup>
 
