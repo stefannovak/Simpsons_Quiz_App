@@ -8,14 +8,15 @@
 
     <TextView
         android:id="@+id/mainMenuText"
-        android:layout_width="412dp"
-        android:layout_height="323dp"
+        android:layout_width="fill_parent"
+        android:layout_height="253dp"
         android:fontFamily="@font/simpsons"
         android:text="@string/MainMenu"
         android:textAlignment="center"
         android:textColor="#E3D347"
-        android:textSize="70sp"
+        android:textSize="52sp"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
