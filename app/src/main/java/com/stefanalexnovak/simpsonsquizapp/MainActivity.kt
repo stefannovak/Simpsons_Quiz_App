@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         resetGame()
 
+        println(MainMenuActivity.difficulty.toString())
     }
 
     /**
@@ -127,8 +128,21 @@ class MainActivity : AppCompatActivity() {
         AnswerButtonD.text = firstNewList.component4()
     }
 
+    /**
+     * Checks the difficulty from the MainMenu radio group. Sets the timer based on difficulty.
+     */
     private fun timer() {
-        countDownTimer = object : CountDownTimer(20000, 1000) {
+        var timeInMillis: Long = 20000
+
+        if (MainMenuActivity.difficulty == Difficulty.EASY) {
+            timeInMillis = 20000
+        } else if(MainMenuActivity.difficulty == Difficulty.MEDIUM) {
+            timeInMillis = 15000
+        } else if (MainMenuActivity.difficulty == Difficulty.HARD) {
+            timeInMillis = 10000
+        }
+
+        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val timeLeftInSec = millisUntilFinished / 1000
                 TimerText.text = getString(R.string.timerText, timeLeftInSec)

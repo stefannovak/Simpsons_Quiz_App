@@ -8,7 +8,10 @@ import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.main_menu.*
 
 class MainMenuActivity : AppCompatActivity() {
-    public var difficulty = Difficulty.EASY
+
+    companion object {
+        var difficulty = Difficulty.EASY
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
