@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.title = ""
 
+
         populateData()
 
         resetGame()

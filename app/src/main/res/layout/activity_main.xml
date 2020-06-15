@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#70D1FE">
+    android:background="#1D3461">
 
     <Button
         android:id="@+id/AnswerButtonA"
@@ -76,6 +76,7 @@
         android:layout_marginStart="16dp"
         android:text="@string/QuestionCounterText"
         android:fontFamily="@font/simpsons"
+        android:textColor="#fff"
         app:layout_constraintBaseline_toBaselineOf="@+id/ScoreCounterText"
         app:layout_constraintEnd_toStartOf="@+id/ScoreCounterText"
         app:layout_constraintHorizontal_bias="0.0"
@@ -88,6 +89,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/ScoreCounterText"
+        android:textColor="#fff"
         android:fontFamily="@font/simpsons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -98,6 +100,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/simpsons"
         android:text="@string/timerText"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
