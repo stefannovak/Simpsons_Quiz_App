@@ -27,17 +27,14 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
         radio_easy.setOnClickListener{
-            println("Easy")
             difficulty = Difficulty.EASY
         }
 
         radio_medium.setOnClickListener{
-            println("Medium")
             difficulty = Difficulty.MEDIUM
         }
 
         radio_hard.setOnClickListener{
-            println("Hard")
             difficulty = Difficulty.HARD
         }
 

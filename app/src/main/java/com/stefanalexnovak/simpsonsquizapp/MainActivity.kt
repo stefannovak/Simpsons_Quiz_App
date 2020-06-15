@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.main_menu.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,11 +17,11 @@ class MainActivity : AppCompatActivity() {
     private var questionCounter = 0
     private lateinit var countDownTimer: CountDownTimer
     private var errorCount = 0
-    private var gameStarted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //Menu bar stuff
         actionBar?.setDisplayShowHomeEnabled(true)
         actionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.title = ""
@@ -35,12 +32,18 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Overrides the default menu to show our menu
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
+    /**
+     * provides the way for the back button to go back to the menu
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.backButton) {
             menuDialog()
@@ -48,6 +51,10 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    /**
+     * A dialog that does not stop the timer of the game, and is cancellable from
+     * clicking outside of it.
+     */
     private fun menuDialog() {
         val alertDialog = AlertDialog.Builder(this).create()
         alertDialog.setMessage("Are you sure you want to return to the main menu?")
@@ -83,7 +90,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetGame() {
-//        gameStarted = true
         score = 0
         questionScore = 1
         errorCount = 0
