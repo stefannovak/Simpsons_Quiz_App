@@ -3,6 +3,8 @@ package com.stefanalexnovak.simpsonsquizapp
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -23,12 +25,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        actionBar?.setDisplayShowHomeEnabled(true)
+        actionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.title = ""
 
         populateData()
 
         resetGame()
 
-        println(MainMenuActivity.difficulty.toString())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.backButton) {
+            menuDialog()
+        }
+        return true
+    }
+
+    private fun menuDialog() {
+        val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setMessage("Are you sure you want to return to the main menu?")
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Go Back") { _, _ -> goToMenu() }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No") { _, _ -> alertDialog.dismiss() }
+        alertDialog.show()
     }
 
     /**

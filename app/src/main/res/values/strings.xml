@@ -11,4 +11,5 @@
     <string name="MainMenu">"THE\nSIMPSONS\nQUIZ"</string>
     <string name="Play">"PLAY"</string>
     <string name="About">"ABOUT"</string>
+    <string name="BackButtonTitle">back</string>
 </resources>
