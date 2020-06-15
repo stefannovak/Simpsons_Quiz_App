@@ -1,5 +1,6 @@
 package com.stefanalexnovak.simpsonsquizapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Toast
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var countDownTimer: CountDownTimer
     private var errorCount = 0
     private var gameStarted = false
+    private val difficulty = Difficulty.EASY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 "Your score was ${score}\n\n" +
                 "Would you like to try again? Or perhaps try a harder difficulty?")
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Play Again") { _, _ -> resetGame() }
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> endGame() }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> goToMenu() }
         alertDialog.show()
     }
 
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 "Your score was ${score}\n\n" +
                 "Would you like to try again?")
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Try Again") { _, _ -> resetGame() }
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> endGame() }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> goToMenu() }
         alertDialog.show()
 
     }
@@ -103,12 +105,6 @@ class MainActivity : AppCompatActivity() {
 
         TimerText.text = getString(R.string.timerText, 20)
         timer()
-    }
-
-    private fun endGame() {
-        //I want this to go to a main menu view
-        //but for now just do a toast
-        Toast.makeText(this, "Heading to main menu", Toast.LENGTH_LONG).show()
     }
 
     private fun initialQuestion() {
@@ -230,6 +226,12 @@ class MainActivity : AppCompatActivity() {
             lostDialog()
             countDownTimer.cancel()
         }
+    }
+
+    //Go to the main menu
+    private fun goToMenu() {
+        val menu = Intent(this, MainMenuActivity::class.java)
+        startActivity(menu)
     }
 
     //Questions
