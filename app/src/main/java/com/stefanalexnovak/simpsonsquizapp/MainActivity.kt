@@ -6,7 +6,9 @@ import android.os.CountDownTimer
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main_menu.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var countDownTimer: CountDownTimer
     private var errorCount = 0
     private var gameStarted = false
-    private val difficulty = Difficulty.EASY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

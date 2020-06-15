@@ -8,6 +8,8 @@ import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.main_menu.*
 
 class MainMenuActivity : AppCompatActivity() {
+    public var difficulty = Difficulty.EASY
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_menu)
@@ -20,6 +22,24 @@ class MainMenuActivity : AppCompatActivity() {
         aboutButton.setOnClickListener{
             aboutDialog()
         }
+
+        radio_easy.setOnClickListener{
+            println("Easy")
+            difficulty = Difficulty.EASY
+        }
+
+        radio_medium.setOnClickListener{
+            println("Medium")
+            difficulty = Difficulty.MEDIUM
+        }
+
+        radio_hard.setOnClickListener{
+            println("Hard")
+            difficulty = Difficulty.HARD
+        }
+
+        //Set the default difficulty to easy
+        difficultyRadioGroup.check(radio_easy.id)
     }
 
     private fun goToQuiz() {
