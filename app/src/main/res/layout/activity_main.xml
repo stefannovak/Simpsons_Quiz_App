@@ -4,51 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#1D3461">
+    android:background="#1D3461"
+    tools:context=".MainActivity">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/AnswerButtonA"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
+        android:layout_width="155dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/Button"
+        android:textColor="#fff"
+        app:cornerRadius="8dp"
         android:fontFamily="@font/simpsons"
         android:text="@string/Button"
-        android:textIsSelectable="false"
-        app:layout_constraintBaseline_toBaselineOf="@+id/AnswerButtonB"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/AnswerButtonC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ErrorCounterText"
+        app:layout_constraintVertical_bias="1.0"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/AnswerButtonB"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="155dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/simpsons"
+        android:hint="@string/Button"
         android:text="@string/Button"
+        android:textColor="#fff"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@+id/AnswerButtonD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/AnswerButtonA" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/AnswerButtonC"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
+        android:layout_width="155dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/Button"
+        android:textColor="#fff"
+        app:cornerRadius="8dp"
         android:fontFamily="@font/simpsons"
         android:text="@string/Button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/AnswerButtonD"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/AnswerButtonD"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="92dp"
+        android:layout_width="155dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/simpsons"
+        android:hint="@string/Button"
         android:text="@string/Button"
+        android:textColor="#fff"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -58,10 +75,12 @@
         android:id="@+id/QuestionText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/simpsons"
         android:textAlignment="center"
-        android:textSize="36sp"
         android:textColor="#E3D347"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/AnswerButtonB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,8 +93,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="@string/QuestionCounterText"
         android:fontFamily="@font/simpsons"
+        android:text="@string/QuestionCounterText"
         android:textColor="#fff"
         app:layout_constraintBaseline_toBaselineOf="@+id/ScoreCounterText"
         app:layout_constraintEnd_toStartOf="@+id/ScoreCounterText"
@@ -88,9 +107,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/simpsons"
         android:text="@string/ScoreCounterText"
         android:textColor="#fff"
-        android:fontFamily="@font/simpsons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,11 +132,25 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/simpsons"
         android:textColor="#FF0303"
-        app:layout_constraintBottom_toTopOf="@+id/AnswerButtonA"
+        app:layout_constraintBottom_toTopOf="@+id/AnswerButtonB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/QuestionText"
         app:layout_constraintVertical_bias="0.075" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="395dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="439dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

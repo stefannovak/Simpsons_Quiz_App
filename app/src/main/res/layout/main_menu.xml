@@ -51,8 +51,8 @@
 
     <RadioGroup
         android:id="@+id/difficultyRadioGroup"
-        android:layout_width="200dp"
-        android:layout_height="94dp"
+        android:layout_width="190dp"
+        android:layout_height="126dp"
         android:layout_marginTop="60dp"
         android:background="#B5ABAB"
         android:fontFamily="@font/simpsons"
@@ -64,25 +64,25 @@
             android:id="@+id/radio_easy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/simpsons"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Easy"
-            android:fontFamily="@font/simpsons"/>
+            android:text="@string/Easy" />
 
         <RadioButton
             android:id="@+id/radio_medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/simpsons"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Medium"
-            android:fontFamily="@font/simpsons"/>
+            android:text="@string/Medium" />
 
         <RadioButton
             android:id="@+id/radio_hard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="33dp"
+            android:fontFamily="@font/simpsons"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Hard"
-            android:fontFamily="@font/simpsons"/>
+            android:text="@string/Hard" />
 
     </RadioGroup>
 
