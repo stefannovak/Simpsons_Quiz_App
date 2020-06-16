@@ -270,7 +270,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (errorCount == 3) {
-            score += 1
             val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
             ScoreCounterText.text = newScoreScore
             lostDialog()
