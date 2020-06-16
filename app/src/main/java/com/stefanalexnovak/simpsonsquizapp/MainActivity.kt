@@ -1,8 +1,10 @@
 package com.stefanalexnovak.simpsonsquizapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Vibrator
 import android.view.Menu
 import android.view.MenuItem
 import android.view.animation.AnimationUtils
@@ -26,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setDisplayShowHomeEnabled(true)
         actionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.title = ""
-
 
         populateData()
 
@@ -256,17 +257,20 @@ class MainActivity : AppCompatActivity() {
      * subtracts a point from the score, but keeps it at 0 if it's already 0
      */
     private fun decrementScore() {
+        var vibrator: Vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
         if(score != 0) {
             score -= 1
             errorCount += 1
             val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
             ScoreCounterText.text = newScoreScore
+            vibrator.vibrate(200)
             ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
             shakeAnimation()
         } else if (score == 0) {
             errorCount += 1
+            vibrator.vibrate(200)
             ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
-            shakeAnimation()
         }
 
         if (errorCount == 3) {
