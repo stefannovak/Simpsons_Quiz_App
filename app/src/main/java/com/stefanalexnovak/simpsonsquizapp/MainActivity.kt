@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 "Your score was ${score}\n\n" +
                 "Would you like to try again? Or perhaps try a harder difficulty?")
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Play Again") { _, _ -> resetGame() }
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> goToMenu() }
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Main menu") { _, _ -> goToMenu() }
         alertDialog.show()
     }
 
@@ -260,10 +260,10 @@ class MainActivity : AppCompatActivity() {
             errorCount += 1
             val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
             ScoreCounterText.text = newScoreScore
-            ErrorCounterText.text = ErrorCounterText.text.toString() + "x"
+            ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
         } else if (score == 0) {
             errorCount += 1
-            ErrorCounterText.text = ErrorCounterText.text.toString() + "x"
+            ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
         }
 
         if (errorCount == 3) {
