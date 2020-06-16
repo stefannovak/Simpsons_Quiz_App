@@ -271,6 +271,7 @@ class MainActivity : AppCompatActivity() {
             errorCount += 1
             vibrator.vibrate(200)
             ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
+            shakeAnimation()
         }
 
         if (errorCount == 3) {
