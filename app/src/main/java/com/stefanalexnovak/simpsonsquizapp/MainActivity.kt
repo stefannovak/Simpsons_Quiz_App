@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.Menu
 import android.view.MenuItem
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -261,9 +262,11 @@ class MainActivity : AppCompatActivity() {
             val newScoreScore = getString(R.string.ScoreCounterText, score.toString())
             ScoreCounterText.text = newScoreScore
             ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
+            shakeAnimation()
         } else if (score == 0) {
             errorCount += 1
             ErrorCounterText.text = ErrorCounterText.text.toString() + "X        "
+            shakeAnimation()
         }
 
         if (errorCount == 3) {
@@ -273,6 +276,18 @@ class MainActivity : AppCompatActivity() {
             lostDialog()
             countDownTimer.cancel()
         }
+    }
+
+    /**
+     * Shakes the screen when a wrong answer is selected
+     */
+    private fun shakeAnimation() {
+        ErrorCounterText.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
+        QuestionText.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
+        AnswerButtonA.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
+        AnswerButtonB.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
+        AnswerButtonC.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
+        AnswerButtonD.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
     }
 
     //Go to the main menu
