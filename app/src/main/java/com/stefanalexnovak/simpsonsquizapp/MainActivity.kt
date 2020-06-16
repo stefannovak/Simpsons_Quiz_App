@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private var questionCounter = 0
     private lateinit var countDownTimer: CountDownTimer
     private var errorCount = 0
+    private var level: String = "Homer"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,28 +71,40 @@ class MainActivity : AppCompatActivity() {
      * Uses a bad alert dialog 
      */
     private fun winDialog() {
+        determineLevel()
         val alertDialog = AlertDialog.Builder(this).create()
         alertDialog.setCanceledOnTouchOutside(false)
         alertDialog.setMessage("Congratulations!\n\n" +
                 "Your score was ${score}\n\n" +
-                "Would you like to try again? Or perhaps try a harder difficulty?")
+                "You've achieved the rank of " + level +
+                "!\n\nWould you like to try again? Or perhaps try a harder difficulty?\n")
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Play Again") { _, _ -> resetGame() }
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Main menu") { _, _ -> goToMenu() }
         alertDialog.show()
     }
 
     private fun lostDialog() {
+        determineLevel()
         val alertDialog = AlertDialog.Builder(this).create()
         alertDialog.setCanceledOnTouchOutside(false)
         alertDialog.setMessage("D'oh! \n\n" +
                 "Your score was ${score}\n\n" +
-                "Would you like to try again?")
+                "You've achieved the rank of " + level +
+                "!\n\nWould you like to try again?")
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Try Again") { _, _ -> resetGame() }
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Main menu") { _, _ -> goToMenu() }
         alertDialog.show()
 
     }
 
+    private fun determineLevel() {
+        level = when(score) {
+            in 0..5 -> "Homer"
+            in 6..15 -> "Martin Prince"
+            in 16..25 -> "Lisa"
+            else -> "Professor Frink! You're a Simpsons legend"
+        }
+    }
     private fun resetGame() {
         score = 0
         questionScore = 1
