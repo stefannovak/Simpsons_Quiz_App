@@ -68,7 +68,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Uses a bad alert dialog 
+     * Uses an alert dialog to congratulate the user for winning the game.
+     * The score is presented, which is used in determineLevel to calculate
+     * a fun name for the user to see.
      */
     private fun winDialog() {
         determineLevel()
@@ -83,6 +85,9 @@ class MainActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
+    /**
+     * Works very similarly to the win dialog.
+     */
     private fun lostDialog() {
         determineLevel()
         val alertDialog = AlertDialog.Builder(this).create()
@@ -97,6 +102,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Uses a when control flow to give a name to a certain amount of score.
+     */
     private fun determineLevel() {
         level = when(score) {
             in 0..5 -> "Homer"
@@ -105,6 +113,12 @@ class MainActivity : AppCompatActivity() {
             else -> "Professor Frink! You're a Simpsons legend"
         }
     }
+
+    /**
+     * The big function of the game. A number of variables are initialised.
+     * The onClickListeners are set up.
+     * The score and timers are initialised.
+     */
     private fun resetGame() {
         score = 0
         questionScore = 1
@@ -156,6 +170,11 @@ class MainActivity : AppCompatActivity() {
         timer()
     }
 
+    /**
+     * Sets up the first questions and answers, before nextQuestion()
+     * takes care of the rest. To randomise the answers, the answers
+     * are put into a list, which is then shuffled.
+     */
     private fun initialQuestion() {
         QuestionText.text = questionList[questionCounter].question
 
@@ -267,7 +286,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * subtracts a point from the score, but keeps it at 0 if it's already 0
+     * subtracts a point from the score, but keeps it at 0 if it's already 0.
+     * Animations and vibrations occur when a wrong answer is made.
      */
     private fun decrementScore() {
         var vibrator: Vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -307,13 +327,17 @@ class MainActivity : AppCompatActivity() {
         AnswerButtonD.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
     }
 
-    //Go to the main menu
+    /**
+     * Go to the main menu
+     */
     private fun goToMenu() {
         val menu = Intent(this, MainMenuActivity::class.java)
         startActivity(menu)
     }
 
-    //Questions
+    /**
+     * Questions
+     */
     private val question1 = Questions(1, "What colour was Chief Wiggum's hair originally?",
         "Blue", "Grey", "Green", "Black")
     private val question2 = Questions(2, "How many members are in the main Simpsons family?",
@@ -336,6 +360,28 @@ class MainActivity : AppCompatActivity() {
         "Handsome Pete", "Krumpet the Klown", "Gabbo", "Krusty the Clown")
     private val question11 = Questions(11, "Which crank call of Bart's actually answers the phone?",
         "Amada Huggenkiss", "B.O Problem", "I.P Freely", "Hugh Jazz")
-
+    private val question12 = Questions(12, "What is Fat Tony's full name?", "Antonio DiMarco", "Tony Salerno",
+        "Joey DiMarcia", "Marion Anthony D'Amico")
+    private val question13 = Questions(13, "Which Springfield Elementary teacher is featured on family board games?", "Principle Skinner",
+    "Elizabeth Hoover", "Dewey Largo", "Edna Krabappel")
+    private val question14 = Questions(14, "What is Barts middle name?", "Joey", "J", "Jay",
+        "Jojo")
+    private val question15 = Questions(15, "What was the name of Lisa's teacher crush?", "Mr Weinstein", "Mr Frank",
+    "Mr Abelman", "Mr Bergstrom")
+//    private val question16 = Questions(16)
+//    private val question17 = Questions(17)
+//    private val question18 = Questions(18)
+//    private val question19 = Questions(19)
+//    private val question20 = Questions(20)
+//    private val question21 = Questions(21)
+//    private val question22 = Questions(22)
+//    private val question23 = Questions(23)
+//    private val question24 = Questions(24)
+//    private val question25 = Questions(25)
+//    private val question26 = Questions(26)
+//    private val question27 = Questions(27)
+//    private val question28 = Questions(28)
+//    private val question29 = Questions(29)
+//    private val question30 = Questions(30)
 
 }
