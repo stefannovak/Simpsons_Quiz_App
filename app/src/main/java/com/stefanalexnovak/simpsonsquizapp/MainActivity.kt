@@ -235,6 +235,7 @@ class MainActivity : AppCompatActivity() {
         questionList.add(question8)
         questionList.add(question9)
         questionList.add(question10)
+        questionList.add(question11)
         questionList.add(question12)
         questionList.add(question13)
         questionList.add(question14)
