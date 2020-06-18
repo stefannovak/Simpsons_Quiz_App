@@ -235,7 +235,25 @@ class MainActivity : AppCompatActivity() {
         questionList.add(question8)
         questionList.add(question9)
         questionList.add(question10)
-        questionList.add(question11)
+        questionList.add(question12)
+        questionList.add(question13)
+        questionList.add(question14)
+        questionList.add(question15)
+        questionList.add(question16)
+        questionList.add(question17)
+        questionList.add(question18)
+        questionList.add(question19)
+        questionList.add(question20)
+        questionList.add(question21)
+        questionList.add(question22)
+        questionList.add(question23)
+        questionList.add(question24)
+        questionList.add(question25)
+        questionList.add(question26)
+        questionList.add(question27)
+        questionList.add(question28)
+        questionList.add(question29)
+        questionList.add(question30)
     }
 
     /**
@@ -362,26 +380,41 @@ class MainActivity : AppCompatActivity() {
         "Amada Huggenkiss", "B.O Problem", "I.P Freely", "Hugh Jazz")
     private val question12 = Questions(12, "What is Fat Tony's full name?", "Antonio DiMarco", "Tony Salerno",
         "Joey DiMarcia", "Marion Anthony D'Amico")
-    private val question13 = Questions(13, "Which Springfield Elementary teacher is featured on family board games?", "Principle Skinner",
+    private val question13 = Questions(13, "Which Elementary teacher is featured on family board games?", "Principle Skinner",
     "Elizabeth Hoover", "Dewey Largo", "Edna Krabappel")
     private val question14 = Questions(14, "What is Barts middle name?", "Joey", "J", "Jay",
         "Jojo")
     private val question15 = Questions(15, "What was the name of Lisa's teacher crush?", "Mr Weinstein", "Mr Frank",
     "Mr Abelman", "Mr Bergstrom")
-//    private val question16 = Questions(16)
-//    private val question17 = Questions(17)
-//    private val question18 = Questions(18)
-//    private val question19 = Questions(19)
-//    private val question20 = Questions(20)
-//    private val question21 = Questions(21)
-//    private val question22 = Questions(22)
-//    private val question23 = Questions(23)
-//    private val question24 = Questions(24)
-//    private val question25 = Questions(25)
-//    private val question26 = Questions(26)
-//    private val question27 = Questions(27)
-//    private val question28 = Questions(28)
-//    private val question29 = Questions(29)
-//    private val question30 = Questions(30)
+    private val question16 = Questions(16,"What is the name of Mr Burns' teddy bear?", "Jojo","Gogo",
+        "Nono","Bobo")
+    private val question17 = Questions(17,"Who was the voice of Poochie?", "Bart Simpson", "Bumblebee Man",
+    "Troy McClure", "Homer Simpson")
+    private val question18 = Questions(18, "What did Bart name his pet elephant?", "Noisy", "Smashy",
+    "Charlie", "Stampy")
+    private val question19 = Questions(19, "What is Chief Wiggum's first name?", "Cletus", "Charlie",
+        "Clarke", "Clancy")
+    private val question20 = Questions(20,"Who did Barney replace in the Be Sharps?", "Apu", "Homer",
+        "Skinner", "Chief Wiggum")
+    private val question21 = Questions(21,"What is the name of Homer's brother?","Hank","Henry",
+        "Harry","Herbert")
+    private val question22 = Questions(22,"What is the name of the first Simpsons episode aired in the U.S.?", "Bart the Genius", "Homer's Odyssey",
+    "Some Enchanted Evening", "Simpsons Roasting On An Open Fire")
+    private val question23 = Questions(23,"What inspires Homer to get his new name, Max Power?", "A nuclear reactor", "A Squishee machine",
+    "The TV", "A hairdryer")
+    private val question24 = Questions(24,"Who invented the Flaming Moe?", "Moe","Lenny",
+        "Carl","Homer")
+    private val question25 = Questions(25,"Who is Groundskeeper Willy's enemy?", "Skinner","Bart",
+        "Nelson","Seamus")
+    private val question26 = Questions(26,"Why did Homer get sent to a mental institution?","Imitating Michael Jackson","Wetting his pants",
+    "Talking to himself","Wearing a pink shirt")
+    private val question27 = Questions(27,"What's the name of the cocktail waitress Ned married?","Amber","Candy",
+        "Sugar","Ginger")
+    private val question28 = Questions(28,"What was the alternate banner title for the weather balloon","Weiner","Big Butt Skinner",
+    "El Barto","Buttzilla")
+    private val question29 = Questions(29,"What is the name of Cletus' wife?","Ginger","Clarice","Jean",
+        "Brandine")
+    private val question30 = Questions(30,"Which country were the people who bought the power plant come from?","Austria","France",
+        "Spain", "Germany")
 
 }
