@@ -1,5 +1,6 @@
 package com.stefanalexnovak.simpsonsquizapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -308,8 +309,9 @@ class MainActivity : AppCompatActivity() {
      * subtracts a point from the score, but keeps it at 0 if it's already 0.
      * Animations and vibrations occur when a wrong answer is made.
      */
+    @SuppressLint("SetTextI18n")
     private fun decrementScore() {
-        var vibrator: Vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val vibrator: Vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         if(score != 0) {
             score -= 1
