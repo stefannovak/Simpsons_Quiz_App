@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simpsons Quiz App</string>
+    <string name="app_name">Yellow Family Trivia</string>
     <string name="QuestionCounterText">Question %s</string>
     <string name="ScoreCounterText">Score: %s</string>
     <string name="Button">Empty</string>

@@ -417,7 +417,7 @@ class MainActivity : AppCompatActivity() {
     "El Barto","Buttzilla")
     private val question29 = Questions(29,"What is the name of Cletus' wife?","Ginger","Clarice","Jean",
         "Brandine")
-    private val question30 = Questions(30,"Which country were the people who bought the power plant come from?","Austria","France",
+    private val question30 = Questions(30,"Where were the people who bought the power plant from?","Austria","France",
         "Spain", "Germany")
 
 }
